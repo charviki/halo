@@ -934,6 +934,14 @@ public class PostServiceImpl extends BasePostServiceImpl<Post> implements PostSe
     }
 
     @Override
+    public @NotNull Sort getCustomIndexSort() {
+        String indexSort = optionService.getByPropertyOfNonNull(PostProperties.INDEX_SORT)
+            .toString();
+        return Sort.by(DESC, indexSort).and(Sort.by(DESC, "id"));
+    }
+
+
+    @Override
     public List<PostMarkdownVO> listPostMarkdowns() {
         List<Post> allPostList = listAll();
         List<PostMarkdownVO> result = new ArrayList(allPostList.size());

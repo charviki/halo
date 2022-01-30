@@ -137,6 +137,17 @@ public interface BasePostService<POST extends BasePost> extends CrudService<POST
     @NonNull
     List<POST> listLatest(int top);
 
+
+    /**
+     * Lists topped topPriority.
+     *
+     * @param top top number must not be less than 0
+     * @return topped post
+     */
+    @NonNull
+    List<POST> listTopped(int top);
+
+
     /**
      * Gets a page of sheet.
      *

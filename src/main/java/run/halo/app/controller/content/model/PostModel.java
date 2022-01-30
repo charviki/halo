@@ -168,7 +168,7 @@ public class PostModel {
     public String list(Integer page, Model model) {
         int pageSize = optionService.getPostPageSize();
         Pageable pageable = PageRequest
-            .of(page >= 1 ? page - 1 : page, pageSize, postService.getPostDefaultSort());
+            .of(page >= 1 ? page - 1 : page, pageSize, postService.getCustomIndexSort());
 
         Page<Post> postPage = postService.pageBy(PostStatus.PUBLISHED, pageable);
         Page<PostListVO> posts = postService.convertToListVo(postPage);

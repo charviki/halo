@@ -312,6 +312,15 @@ public interface PostService extends BasePostService<Post> {
     @NotNull
     Sort getPostDefaultSort();
 
+    /**
+     * Get Post Pageable create time sort
+     *
+     * @return post create time sort
+     * @description contains tow parts. First, From Custom index sort; Second, basic id sort;
+     */
+    @NotNull
+    Sort getCustomIndexSort();
+
 
     /**
      * Lists PostMarkdown vo
